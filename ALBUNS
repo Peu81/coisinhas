@@ -1,0 +1,95 @@
+import java.util.ArrayList;
+
+class Album {
+    private String nomeAlbum;
+    private String nomeArtista;
+    private int anoLancamento;
+    
+    public Album(String nomeAlbum, String nomeArtista, int anoLancamento) {
+        
+        this.nomeAlbum = nomeAlbum;
+        this.nomeArtista = nomeArtista;
+        this.anoLancamento = anoLancamento;
+        
+    }
+    
+    
+    public String getNomeAlbum() {
+        return nomeAlbum;
+        
+    }
+    public String getNomeArtista() {
+        return nomeArtista;
+        
+    }
+    public int getAnoLancamento() {
+        return anoLancamento;
+        
+    }
+    
+    
+    public void detalhesAlbum() {
+        
+        System.out.println("Álbum: " + nomeAlbum);
+        System.out.println("Artista: " + nomeArtista);
+        System.out.println("Ano de lançamento: " + anoLancamento);
+        
+    }
+    
+    
+    
+}
+
+
+class BibliotecaAlbuns {
+    private ArrayList<Album> albuns;
+    
+    public BibliotecaAlbuns() {
+        
+        this.albuns = new ArrayList<>();
+    
+    }
+    
+    public void adicionarAlbum(Album album) {
+        
+        albuns.add(album);
+        System.out.println(album.getNomeAlbum() + " adicionado à biblioteca");
+    }
+    
+    public void listarAlbuns() {
+        
+        if (albuns.isEmpty()) {
+            System.out.println("Sua biblioteca está vazia :(");
+        } else {
+            System.out.println("Sua biblioteca:");
+            
+            for (Album album : albuns) {
+                album.detalhesAlbum();
+               
+            }
+            
+        }
+        
+    }
+}
+
+
+public class Main {
+	public static void main(String[] args) {
+		
+		BibliotecaAlbuns biblioteca = new BibliotecaAlbuns();
+		
+		Album Album1 = new Album("SOS", "SZA",2022);
+		Album Album2 = new Album("1989", "Taylor Swift",2014);
+		Album Album3 = new Album("The Fame Monster", "Lady Gaga",2009);
+		
+		biblioteca.adicionarAlbum(Album1);
+		biblioteca.adicionarAlbum(Album2);
+		biblioteca.adicionarAlbum(Album3);
+		
+        biblioteca.listarAlbuns();
+        
+        
+		
+	}
+}
