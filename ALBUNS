@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Scanner;
+
 
 class Album {
     private String nomeAlbum;
@@ -77,7 +79,8 @@ class BibliotecaAlbuns {
         boolean encontrado = false;
         for (Album album : albuns) {
             if (album.getNomeAlbum().equalsIgnoreCase(nomeAlbum)) {
-                System.out.println("Álbum encontrado: ");
+                System.out.println("Álbum encontrado: \n");
+
                 album.detalhesAlbum();
                 encontrado = true;
                 break;
@@ -95,6 +98,8 @@ public class Main {
 	public static void main(String[] args) {
 		
 		BibliotecaAlbuns biblioteca = new BibliotecaAlbuns();
+		Scanner scanner = new Scanner(System.in);
+		String pesquisar;
 		
 		Album Album1 = new Album("SOS", "SZA",2022);
 		Album Album2 = new Album("1989", "Taylor Swift",2014);
@@ -107,7 +112,11 @@ public class Main {
 		
         //biblioteca.listarAlbuns();
         
-        biblioteca.PesquisaAlbum("The Fame");
+        
+        System.out.print("Pesquisa na biblioteca: ");
+        pesquisar = scanner.nextLine();
+        
+        biblioteca.PesquisaAlbum(pesquisar);
         
         
 		
